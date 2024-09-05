@@ -1,31 +1,32 @@
 /* outfit-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Outfit';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/outfit-v11-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/outfit-v11-latin-regular.woff2') format('woff2');
 }
 
 /* outfit-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Outfit';
   font-style: normal;
   font-weight: 700;
-  src: url('fonts/outfit-v11-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/outfit-v11-latin-700.woff2') format('woff2');
 }
 
 :root {
   --color__white: hsl(0, 0%, 100%);
   --color__slate300: hsl(212, 45%, 89%);
   --color__slate500: hsl(216, 15%, 48%);
+  --color__slate700: hsl(216,27%,30%);
   --color__slate900: hsl(218, 44%, 22%);
 
   --font__stack: 'Outfit', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  --leading__body: 140%;
-  --leading__headlines: 120%;
+  --leading__body: 1.4;
+  --leading__headlines: 1.2;
 
   --letter-spacing__body: 0.01333rem;
 
@@ -33,13 +34,32 @@
   --spacing300: 1.6rem;
   --spacing200: 1.0666rem;
 
+  --text__base: 15px;
   --text__headline: 1.4666rem;
   --text__body: 1rem;
 }
 
 *, *::after, *::before {box-sizing: border-box;}
 
-html {font-size: 15px;}
+:focus {scroll-padding-block-end: 8vh;}
+
+:focus-visible {
+  --outline-color: currentColor;
+  --outline-size: max(2px, 0.15em);
+  --outline-style: solid;
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+}
+
+:target {scroll-padding-block-start: 2rem;}
+
+html {
+  font-size: var(--text__base);
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, p {margin-block-end: 0;}
 
 body {
   background-color: var(--color__slate300);
@@ -54,6 +74,12 @@ body {
   text-rendering: optimizeSpeed;
 }
 
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
+}
+
 a {
   color: var(--color__slate900);
   transition: all 220ms ease-in-out;
@@ -65,6 +91,7 @@ h1 {
   font-size: var(--text__headline);
   line-height: var(--leading__headlines);
   margin-bottom: var(--spacing300);
+  text-wrap: balance;
 }
 
 img {
@@ -87,6 +114,8 @@ p {letter-spacing: var(--letter-spacing__body);}
   }
 
   .card__body {text-align: center;}
+
+.attribution {color: var(--color__slate700);}
 
 .wrapper {
   display: flex;
