@@ -63,7 +63,7 @@ body, h1, p {margin-block-end: 0;}
 
 body {
   background-color: var(--color__slate300);
-  color: var(--color__slate500);
+  color: var(--color__slate700);
   font-family: var(--font__stack);
   font-size: var(--text__body);
   line-height: var(--leading__body);
@@ -75,15 +75,13 @@ body {
 }
 
 a:not([class]) {
+  color: var(--color__slate900);
   text-decoration-skip-ink: auto;
   text-decoration-thickness: max(0.08em, 1px);
   text-underline-offset: 0.15em;
 }
 
-a {
-  color: var(--color__slate900);
-  transition: all 220ms ease-in-out;
-}
+a {transition: all 220ms ease-in-out;}
   a:hover, a:focus {text-decoration: none;}
 
 h1 {
@@ -114,8 +112,6 @@ p {letter-spacing: var(--letter-spacing__body);}
   }
 
   .card__body {text-align: center;}
-
-.attribution {color: var(--color__slate700);}
 
 .wrapper {
   display: flex;
